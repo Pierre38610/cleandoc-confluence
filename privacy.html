@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — CleanDoc for Confluence</title>
+  <style>
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0f172a; color: #e2e8f0; line-height: 1.7; }
+    .wrap { max-width: 820px; margin: 0 auto; padding: 48px 24px; }
+    h1, h2 { color: #fff; }
+    table { width: 100%; border-collapse: collapse; margin: 20px 0; background: #1e293b; }
+    th, td { border: 1px solid #334155; padding: 10px 12px; text-align: left; }
+    th { background: #0b1220; color: #fff; }
+    a { color: #60a5fa; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <p><a href="index.html">&larr; Back to CleanDoc</a></p>
+    <h1>Privacy Policy</h1>
+    <p><strong>Effective Date:</strong> November 2026 &middot; <strong>App:</strong> CleanDoc — Stale-Page &amp; Offboarding Cleaner for Confluence</p>
+
+    <h2>1. Zero-Egress "Runs on Atlassian" Architecture</h2>
+    <p>CleanDoc runs 100% natively on Atlassian Forge (<code>nodejs22.x</code>) using Atlassian Forge SQL. The application declares zero <code>external.fetch</code> permissions in <code>manifest.yml</code>. Your Confluence and Jira data never leaves Atlassian Cloud infrastructure, and no external servers or third-party analytics services are used.</p>
+
+    <h2>2. Data Processed Inside Forge SQL</h2>
+    <table>
+      <thead><tr><th>Category</th><th>Fields Stored</th><th>Purpose</th></tr></thead>
+      <tbody>
+        <tr><td>Page Metadata</td><td>Page ID, space key/ID, title, URL, last modified timestamp, orphan flag, Rovo Pollution Score, clean status</td><td>Identify stale pages and track cleanup status</td></tr>
+        <tr><td>Ownership</td><td>Owner Atlassian Account ID, display name, account status, reassigned owner ID</td><td>Detect offboarded employees and support bulk reassignment</td></tr>
+        <tr><td>Jira Keys</td><td>Linked Jira issue keys (e.g. <code>PROJ-42</code>), resolved Jira keys</td><td>Identify documentation linked to closed Jira work</td></tr>
+        <tr><td>Audit Trail</td><td>Action type, actor Account ID/name, affected page IDs, timestamp</td><td>Provide exportable CSV governance logs</td></tr>
+      </tbody>
+    </table>
+    <p><strong>No Page Body Storage:</strong> CleanDoc never stores Confluence page body content. Page storage XML is parsed transiently in memory during scans only to extract Jira issue keys.</p>
+
+    <h2>3. Data Retention &amp; Deletion</h2>
+    <p>All data resides inside your tenant-isolated Forge SQL database and respects Atlassian Cloud Data Residency. Uninstalling CleanDoc triggers automatic platform deprovisioning by Atlassian Forge.</p>
+
+    <h2>4. Subprocessors &amp; Contact</h2>
+    <p>CleanDoc uses zero external subprocessors beyond Atlassian Cloud / Forge itself. Publisher: Pierre Cassagnettes — CleanDoc (France / European Union). For GDPR, data deletion, or privacy inquiries, contact <a href="mailto:pierrecassagnettes+cleandoc@gmail.com">pierrecassagnettes+cleandoc@gmail.com</a>.</p>
+  </div>
+</body>
+</html>
